@@ -1,0 +1,13 @@
+@use './../themes' as *;
+.header__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  span{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: nb-theme(text-basic-color);
+    margin-left: 0.5rem;
+  }
+}

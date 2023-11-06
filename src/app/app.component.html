@@ -1,0 +1,26 @@
+<nb-layout [nbSpinner]="isLoading"
+            nbSpinnerStatus="primary"
+            nbSpinnerSize="giant"
+            nbSpinnerMessage="Loading"
+>
+  <nb-layout-header fixed>
+    <div>
+      <a class="header__logo" href="/"><img src="/assets/img/favicon-32x32.png" alt="logo"><span>Edu-Connect</span></a>
+    </div>
+    <nb-actions>
+      <nb-action title="Home" icon="home-outline" link="/">Home</nb-action>
+      <nb-action link="datasource"><a href="course">Course</a></nb-action>
+      <nb-action link="student"><a href="student">Student</a></nb-action>
+    </nb-actions>
+  </nb-layout-header>
+  <nb-layout-column>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+
+  <nb-layout-footer fixed>
+    <div>
+      &copy; {{ now | date:'yyyy' }} Edu-Connect. Todos os direitos reservados.
+    </div>
+  </nb-layout-footer>
+
+</nb-layout>
