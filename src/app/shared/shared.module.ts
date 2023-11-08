@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule }                 from '@angular/common';
-import {NbAlertModule, NbSpinnerModule} from '@nebular/theme';
+import { CommonModule } from '@angular/common';
+import { NbAlertModule, NbDialogModule, NbSpinnerModule} from '@nebular/theme';
 import { LabelValueComponent } from './components/label-value/label-value.component';
 
 
 
 @NgModule({
   declarations: [
-
-  
     LabelValueComponent
   ],
   exports: [
@@ -18,7 +16,8 @@ import { LabelValueComponent } from './components/label-value/label-value.compon
   imports: [
     CommonModule,
     NbSpinnerModule,
-    NbAlertModule
+    NbAlertModule,
+    NbDialogModule.forRoot(),
   ]
 })
 export class SharedModule { }

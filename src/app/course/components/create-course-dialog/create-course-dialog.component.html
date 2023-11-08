@@ -1,0 +1,18 @@
+<ng-template #dialog let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>Novo Curso</nb-card-header>
+    <nb-card-body class="card-container">
+      <form [formGroup]="form">
+        <input type="text" nbInput fullWidth shape="semi-round" status="basic" placeholder="Nome" formControlName="name">
+        <textarea nbInput fullWidth shape="semi-round" placeholder="Descrição" rows="6" formControlName="description"></textarea>
+        <input type="number" nbInput fullWidth shape="semi-round" status="basic" placeholder="Carga Horária" formControlName="course_load">
+      </form>
+    </nb-card-body>
+    <nb-card-footer class="footer-container">
+      <button nbButton size="large" outline (click)="ref.close()">Cancelar</button>
+      <button [disabled]="form.invalid" nbButton size="large" outline status="primary" (click)="save(ref)">Salvar</button>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>
+<button nbButton (click)="open(dialog)">Novo Curso</button>
+
