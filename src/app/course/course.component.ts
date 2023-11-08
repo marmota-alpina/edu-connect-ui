@@ -7,13 +7,14 @@ import { CourseInputModel } from "../shared/models/course-input.model";
   templateUrl: './course.component.html',
   styleUrls: ['./course.component.scss']
 })
-export class CourseComponent {
+export class CourseComponent{
 
+    courses$ = this._courseService.getCourses();
     constructor(private readonly _courseService: CourseService) { }
 
     saveCourse(course: CourseInputModel) {
       this._courseService.saveCourse(course).subscribe({
-        next: (course) => console.log(course),
+        next: (course) => this.courses$ = this._courseService.getCourses(),
       });
     }
 }

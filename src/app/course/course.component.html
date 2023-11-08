@@ -2,3 +2,8 @@
   <h2>Cursos</h2>
   <app-create-course-dialog (formData)="saveCourse($event)"></app-create-course-dialog>
 </div>
+<div>
+  <ul>
+    <li *ngFor="let course of courses$ | async">{{course.id}} - {{course.name}}</li>
+  </ul>
+</div>
