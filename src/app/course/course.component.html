@@ -2,8 +2,24 @@
   <h2>Cursos</h2>
   <app-create-course-dialog (formData)="saveCourse($event)"></app-create-course-dialog>
 </div>
-<div>
-  <ul>
-    <li *ngFor="let course of courses$ | async">{{course.id}} - {{course.name}}</li>
-  </ul>
+<div class="container-body">
+  <nb-card [size]="'medium'">
+    <nb-card-header>Lista de cursos</nb-card-header>
+    <nb-accordion [multi]="true">
+      <nb-accordion-item *ngFor="let course of courses$ | async">
+        <nb-accordion-item-header>
+          {{ course.id }} - {{ course.name }} - {{course.course_load}}h
+        </nb-accordion-item-header>
+        <nb-accordion-item-body>
+          <div class="title-container">
+            <span>{{course.description}}</span>
+            <div class="actions-container">
+              <button (click)="updateCourse(course)" nbButton status="warning">Alterar</button>
+              <button (click)="deleteCourse(course)" nbButton status="danger">Excluir</button>
+            </div>
+          </div>
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+    </nb-accordion>
+  </nb-card>
 </div>

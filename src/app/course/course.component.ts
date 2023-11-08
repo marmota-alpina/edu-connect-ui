@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CourseService } from "../shared/services/course.service";
 import { CourseInputModel } from "../shared/models/course-input.model";
+import {CourseOutputModel} from "../shared/models/course-output.model";
 
 @Component({
   selector: 'app-course',
@@ -17,4 +18,12 @@ export class CourseComponent{
         next: (course) => this.courses$ = this._courseService.getCourses(),
       });
     }
+
+  updateCourse(course: CourseOutputModel) {
+    console.log(course);
+  }
+
+  deleteCourse(course: CourseOutputModel) {
+    console.log(course)
+  }
 }

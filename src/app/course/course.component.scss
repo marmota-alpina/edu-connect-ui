@@ -4,3 +4,17 @@
   align-items: center;
   margin-bottom: 1rem;
 }
+.container-body {
+  margin-bottom: 1rem;
+  min-height: 660px;
+  max-height: 900px;
+  overflow-y: scroll;
+}
+.actions-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  min-width: 200px;
+  max-width: 300px;
+}
