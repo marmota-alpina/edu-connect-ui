@@ -1,10 +1,10 @@
-import {inject, Injectable} from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
   HttpInterceptor
-}                           from '@angular/common/http';
+} from '@angular/common/http';
 import {finalize, Observable} from 'rxjs';
 import {SpinnerService} from '../services/spinner.service';
 
