@@ -16,14 +16,23 @@ export class CourseComponent{
     saveCourse(course: CourseInputModel) {
       this._courseService.saveCourse(course).subscribe({
         next: (course) => this.courses$ = this._courseService.getCourses(),
+        error: (err) => console.log(err.error.message)
       });
     }
 
-  updateCourse(course: CourseOutputModel) {
-    console.log(course);
+  updateCourse(course: CourseInputModel) {
+    this._courseService.updateCourse(course.id, course).subscribe({
+      next: (course) => this.courses$ = this._courseService.getCourses(),
+      error: (err) => console.log(err.error.message)
+    });
   }
 
   deleteCourse(course: CourseOutputModel) {
-    console.log(course)
+      const confirmation = confirm(`Tem certeza de que deseja excluir o curso '${course.name}'? Esta ação é irreversível.`);
+      if (confirmation) {
+        this._courseService.deleteCourse(course.id).subscribe({
+          next: () => this.courses$ = this._courseService.getCourses(),
+        });
+      }
   }
 }

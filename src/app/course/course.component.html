@@ -14,7 +14,14 @@
           <div class="title-container">
             <span>{{course.description}}</span>
             <div class="actions-container">
-              <button (click)="updateCourse(course)" nbButton status="warning">Alterar</button>
+              <app-create-course-dialog
+                [courseModel]="course"
+                buttonStatus="warning"
+                buttonTitle="Alterar"
+                cardTitle="Alterar Curso"
+                (formData)="updateCourse($event)">
+
+              </app-create-course-dialog>
               <button (click)="deleteCourse(course)" nbButton status="danger">Excluir</button>
             </div>
           </div>
