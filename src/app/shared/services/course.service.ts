@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import {CourseOutputModel} from "../models/course-output.model";
-import {Observable} from "rxjs";
-import {environment} from "../../../environments/environment";
+import { CourseOutputModel } from "../models/course-output.model";
+import { Observable } from "rxjs";
+import { environment } from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,10 @@ export class CourseService {
   constructor(private readonly _httpClient: HttpClient) { }
 
   saveCourse(course: any): Observable<CourseOutputModel> {
-    return this._httpClient.post<CourseOutputModel>(`${this._apiUrl}/courses`, course);
+    return this._httpClient.post<CourseOutputModel>(`${this._apiUrl}/courses/`, course);
+  }
+
+  getCourses(): Observable<CourseOutputModel[]> {
+    return this._httpClient.get<CourseOutputModel[]>(`${this._apiUrl}/courses/`);
   }
 }
