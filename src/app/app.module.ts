@@ -14,8 +14,9 @@ import {
   NbSpinnerModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
-import {SpinnerInterceptor} from './shared/interceptors/spinner.interceptor';
-import {SharedModule} from './shared/shared.module';
+import { SpinnerInterceptor } from './shared/interceptors/spinner.interceptor';
+import { SharedModule } from './shared/shared.module';
+import { HttpRequestInterceptor } from './shared/interceptors/http-request.interceptor';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,11 @@ import {SharedModule} from './shared/shared.module';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: SpinnerInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpRequestInterceptor,
       multi: true,
     }
   ],
