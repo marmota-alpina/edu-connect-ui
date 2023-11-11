@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CourseService } from "../shared/services/course.service";
 import { CourseInputModel } from "../shared/models/course-input.model";
-import {CourseOutputModel} from "../shared/models/course-output.model";
+import { Router } from "@angular/router";
+import { NbToastrService } from "@nebular/theme";
 
 @Component({
   selector: 'app-course',
@@ -11,28 +12,29 @@ import {CourseOutputModel} from "../shared/models/course-output.model";
 export class CourseComponent{
 
     courses$ = this._courseService.getCourses();
-    constructor(private readonly _courseService: CourseService) { }
+    constructor(private readonly _courseService: CourseService, private readonly _router: Router, private _toastrService: NbToastrService) { }
 
     saveCourse(course: CourseInputModel) {
       this._courseService.saveCourse(course).subscribe({
-        next: (course) => this.courses$ = this._courseService.getCourses(),
-        error: (err) => console.log(err.error.message)
+        next: (course) => {
+          this.courses$ = this._courseService.getCourses();
+          this._toastrService.success('Curso cadastrado com sucesso!', 'Sucesso!');
+        },
+        error: (err) => this._toastrService.danger(err.error.message, 'Erro!')
       });
     }
 
   updateCourse(course: CourseInputModel) {
     this._courseService.updateCourse(course.id, course).subscribe({
-      next: (course) => this.courses$ = this._courseService.getCourses(),
-      error: (err) => console.log(err.error.message)
+      next: (course) => {
+        this.courses$ = this._courseService.getCourses();
+        this._toastrService.success('Curso atualizado com sucesso!', 'Sucesso!');
+      },
+      error: (err) => this._toastrService.danger(err.error.message, 'Erro!')
     });
   }
 
-  deleteCourse(course: CourseOutputModel) {
-      const confirmation = confirm(`Tem certeza de que deseja excluir o curso '${course.name}'? Esta ação é irreversível.`);
-      if (confirmation) {
-        this._courseService.deleteCourse(course.id).subscribe({
-          next: () => this.courses$ = this._courseService.getCourses(),
-        });
-      }
+  navigateToDetails(courseId: number) {
+    this._router.navigate(['/course/', courseId]);
   }
 }

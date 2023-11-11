@@ -1,0 +1,22 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.table-striped {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+/* Efeito de hover para linhas da tabela */
+.table tbody tr:hover {
+  color: #808080FF;
+}
+
+.actions-container {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}

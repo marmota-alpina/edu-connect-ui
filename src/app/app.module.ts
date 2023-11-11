@@ -11,7 +11,7 @@ import {
   NbMenuModule,
   NbActionsModule,
   NbAlertModule,
-  NbSpinnerModule
+  NbSpinnerModule, NbToastrModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { SpinnerInterceptor } from './shared/interceptors/spinner.interceptor';
@@ -20,7 +20,7 @@ import { HttpRequestInterceptor } from './shared/interceptors/http-request.inter
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +29,7 @@ import { HttpRequestInterceptor } from './shared/interceptors/http-request.inter
     BrowserAnimationsModule,
     NbThemeModule.forRoot({name: 'dark'}),
     NbMenuModule.forRoot(),
+    NbToastrModule.forRoot({hasIcon: true, duration: 3000, destroyByClick: true, preventDuplicates: true}),
     NbLayoutModule,
     NbEvaIconsModule,
     NbActionsModule,
