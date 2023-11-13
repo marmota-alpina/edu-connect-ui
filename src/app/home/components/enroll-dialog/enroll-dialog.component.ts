@@ -28,8 +28,8 @@ export class EnrollDialogComponent implements OnInit{
   constructor(private dialogService: NbDialogService, private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
       name: ['', Validators.required],
-      email: ['', Validators.email],
-      course_id: ['', Validators.required],
+      email: ['', [Validators.email, Validators.required]],
+      course_id: [''],
     });
   }
   ngOnInit(): void {
@@ -45,7 +45,7 @@ export class EnrollDialogComponent implements OnInit{
 
   save(ref: any) {
     if (this.form.valid) {
-      this.formData.emit(this.form.value);
+      this.formData.emit({...this.form.value, course_id: this.courseModel?.id});
       this.form.reset();
       ref.close();
     }

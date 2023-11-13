@@ -18,7 +18,12 @@
       <td>{{ student.course.name }}</td>
       <td>{{ student.registration }}</td>
       <td>{{ student.email }}</td>
-      <td><button (click)="showDetails(student.id)" nbButton size="tiny" status="info">Detalhe</button></td>
+      <td>
+        <div class="actions-container actions">
+          <button  (click)="edit(student)" nbButton size="tiny" status="warning">Editar</button>
+          <button (click)="showDetails(student.id)" nbButton size="tiny" status="info">Detalhe</button>
+        </div>
+      </td>
     </tr>
     </tbody>
   </table>

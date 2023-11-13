@@ -20,4 +20,8 @@ export class StudentComponent {
   showDetails(id: number) {
     this._router.navigate(['student', id]);
   }
+
+  edit(student: StudentOutputModel) {
+
+  }
 }
