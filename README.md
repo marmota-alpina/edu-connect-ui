@@ -1,30 +1,81 @@
 # Edu-Connect UI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.9.
+Este repositório contém o código-fonte da aplicação Edu-Connect UI. Siga as instruções abaixo para executar a aplicação em ambientes de desenvolvimento e produção.
 
-## Development server
+## Execução em Desenvolvimento
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Pré-requisitos
+- [API](https://github.com/marmota-alpina/Edu-Connect-API) em execução
+- [Node.js](https://nodejs.org/) instalado
+- [Angular CLI](https://angular.io/cli) instalado
+- [Docker](https://docs.docker.com/) instalado (opcional para desenvolvimento)
 
-## Code scaffolding
+### Passos
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone o repositório:
 
-## Build
+    ```bash
+    git clone https://github.com/marmota-alpina/edu-connect-ui.git
+    ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+2. Navegue até o diretório do projeto:
 
-## Running unit tests
+    ```bash
+    cd edu-connect-ui
+    ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Instale as dependências:
 
-## Running end-to-end tests
+    ```bash
+    npm install
+    ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+4. Inicie a aplicação em modo de desenvolvimento:
 
-## Further help
+    ```bash
+    npm run start
+    ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+   A aplicação estará disponível em `http://localhost:4200/`. O aplicativo será recarregado automaticamente quando você fizer alterações no código.
 
-## Nebular
-- https://akveo.github.io/nebular/
+## Execução em Produção usando Docker
+
+### Pré-requisitos
+- [API](https://github.com/marmota-alpina/Edu-Connect-API) em execução
+- [Docker](https://docs.docker.com/) instalado
+
+### Passos
+
+1. Clone o repositório (se ainda não tiver feito):
+
+    ```bash
+    git clone https://github.com/marmota-alpina/edu-connect-ui.git
+    ```
+
+2. Navegue até o diretório do projeto:
+
+    ```bash
+    cd edu-connect-ui
+    ```
+
+3. Execute o seguinte comando para construir e iniciar o contêiner Docker em modo de produção:
+
+    ```bash
+    docker-compose up --build -d
+    ```
+
+   A aplicação estará disponível em `http://localhost:8080/`.
+
+   Para parar o contêiner, execute:
+
+    ```bash
+    docker-compose down
+    ```
+
+## Versões Utilizadas
+
+- Angular CLI: 15.2.9
+- Node: 18.12.0
+- Package Manager: npm 8.19.2
+
+
