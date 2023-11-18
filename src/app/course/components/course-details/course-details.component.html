@@ -1,0 +1,34 @@
+<h2>Detalhe do curso</h2>
+<ng-container *ngIf="course$ | async as course">
+  <app-label-value label="Código" [value]="course.id"></app-label-value>
+  <app-label-value label="Nome" [value]="course.name"></app-label-value>
+  <app-label-value label="Descrição" [value]="course.description"></app-label-value>
+  <app-label-value label="Carga Horária" [value]="course.course_load"></app-label-value>
+</ng-container>
+
+<ng-container *ngIf="students$ | async as students">
+  <app-label-value label="Total de alunos" [value]="students.length"></app-label-value>
+  <h3>Alunos</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>Matrícula</th>
+        <th>E-mail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student; index as i; of students">
+        <td>{{ i + 1 }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.registration }}</td>
+        <td>{{ student.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="actions-container actions">
+    <button (click)="navigateToCourses()" nbButton status="basic">Voltar</button>
+    <button [disabled]="students.length > 0" (click)="deleteCourse()" nbButton status="danger">Excluir curso</button>
+  </div>
+</ng-container>

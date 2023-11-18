@@ -1,1 +1,32 @@
-<p>student works!</p>
+<ng-container *ngIf="students$ | async as students">
+  <h2>Alunos</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Nome</th>
+      <th>Curso</th>
+      <th>Matrícula</th>
+      <th>E-mail</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let student; index as i; of students">
+      <td>{{ i+1 }}</td>
+      <td>{{ student.name }}</td>
+      <td>{{ student.course.name }}</td>
+      <td>{{ student.registration }}</td>
+      <td>{{ student.email }}</td>
+      <td>
+        <div class="actions-container actions">
+          <app-update-student-dialog buttonStatus="warning" [studentModel]="student" [courseList]="courseList" (formData)="updateStudent($event)">
+
+          </app-update-student-dialog>
+          <button (click)="showDetails(student.id)" nbButton size="tiny" status="info">Detalhe</button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</ng-container>

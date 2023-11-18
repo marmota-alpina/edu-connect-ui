@@ -1,0 +1,12 @@
+  <nb-card size="tiny" *ngFor="let course of courses$ | async">
+    <nb-card-header>{{ course.name }} - {{course.course_load}}h</nb-card-header>
+    <nb-card-body>{{ course.description }}</nb-card-body>
+    <nb-card-footer>
+      <app-enroll-dialog
+        buttonStatus="success"
+        [courseModel]="course"
+        (formData)="enroll($event)"
+      >
+      </app-enroll-dialog>
+    </nb-card-footer>
+  </nb-card>

@@ -1,0 +1,12 @@
+<h2>Detalhe do aluno</h2>
+<ng-container *ngIf="student$ | async as student">
+  <app-label-value label="Código" [value]="student.id"></app-label-value>
+  <app-label-value label="Nome" [value]="student.name"></app-label-value>
+  <app-label-value label="Curso" [value]="student.course.name + ' - ' + student.course.course_load + 'h'"></app-label-value>
+  <app-label-value label="Mátricula" [value]="student.registration"></app-label-value>
+  <app-label-value label="email" [value]="student.email"></app-label-value>
+  <div class="actions-container">
+    <button (click)="navigateToStudents()" nbButton status="basic">Voltar</button>
+    <button (click)="deleteStudent(student.id)" nbButton status="danger">Excluir aluno</button>
+  </div>
+</ng-container>

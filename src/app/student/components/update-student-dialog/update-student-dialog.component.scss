@@ -1,0 +1,12 @@
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.card-container {
+  input, textarea{
+    margin-bottom: 1rem;
+  }
+}

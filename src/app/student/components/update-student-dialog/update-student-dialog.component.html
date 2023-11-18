@@ -1,0 +1,23 @@
+<ng-template #dialog let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>{{ cardTitle }}</nb-card-header>
+    <nb-card-body class="card-container">
+      <form [formGroup]="form">
+        <input type="text" nbInput fullWidth shape="semi-round" status="basic" placeholder="Nome" formControlName="name">
+        <input type="text" nbInput fullWidth shape="semi-round" status="basic" placeholder="Email" formControlName="email">
+
+        <nb-select placeholder="Selecione um curso" formControlName="course_id" fullWidth shape="semi-round">
+          <nb-option *ngFor="let course of courseList" [value]="course.id">{{ course.name }}</nb-option>
+        </nb-select>
+      </form>
+    </nb-card-body>
+    <nb-card-footer class="footer-container">
+      <button nbButton size="large" outline (click)="ref.close()">Cancelar</button>
+      <button [disabled]="form.invalid" nbButton size="large" outline status="primary" (click)="save(ref)">Salvar</button>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>
+
+<button nbButton size="tiny" [status]="buttonStatus" (click)="open(dialog)">{{ buttonTitle }}</button>
+
+

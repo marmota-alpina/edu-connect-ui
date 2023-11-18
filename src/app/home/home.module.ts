@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CourseRoutingModule } from "./course-routing.module";
-import { CourseComponent } from "./course.component";
-import { CreateCourseDialogComponent } from './components/create-course-dialog/create-course-dialog.component';
 import {
   NbAccordionModule,
   NbButtonModule,
@@ -12,19 +9,20 @@ import {
   NbSelectModule
 } from "@nebular/theme";
 import { ReactiveFormsModule } from "@angular/forms";
-import {SharedModule} from "../shared/shared.module";
-import { CourseDetailsComponent } from './components/course-details/course-details.component';
+import { SharedModule } from "../shared/shared.module";
+import { HomeComponent } from "./home.component";
+import { HomeRoutingModule } from "./home-routing.module";
+import { EnrollDialogComponent } from "./components/enroll-dialog/enroll-dialog.component";
 
 
 @NgModule({
   declarations: [
-    CourseComponent,
-    CreateCourseDialogComponent,
-    CourseDetailsComponent
+    HomeComponent,
+    EnrollDialogComponent
   ],
   imports: [
     CommonModule,
-    CourseRoutingModule,
+    HomeRoutingModule,
     NbCardModule,
     ReactiveFormsModule,
     NbSelectModule,
@@ -35,4 +33,4 @@ import { CourseDetailsComponent } from './components/course-details/course-detai
     NbAccordionModule,
   ]
 })
-export class CourseModule { }
+export class HomeModule { }

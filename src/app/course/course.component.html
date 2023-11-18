@@ -8,7 +8,7 @@
     <nb-accordion [multi]="true">
       <nb-accordion-item *ngFor="let course of courses$ | async">
         <nb-accordion-item-header>
-          {{ course.id }} - {{ course.name }} - {{course.course_load}}h
+          {{ course.name }}
         </nb-accordion-item-header>
         <nb-accordion-item-body>
           <div class="title-container">
@@ -22,7 +22,7 @@
                 (formData)="updateCourse($event)">
 
               </app-create-course-dialog>
-              <button (click)="deleteCourse(course)" nbButton status="danger">Excluir</button>
+              <button (click)="navigateToDetails(course.id)" nbButton status="info">Detalhe</button>
             </div>
           </div>
         </nb-accordion-item-body>
